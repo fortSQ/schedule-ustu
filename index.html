@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Расписание</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .w-1 { width: 1%; }
+        table td { height: 4.6rem; }
+        #scheduleTable { transition: opacity .3s; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row mt-3">
+        <div class="col-md-6 col-lg-8 mb-2">
+            <h3><span id="currentDate"></span> <small class="text-muted" id="currentBasis"></small></h3>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <select class="form-control" id="selectWeek">
+                <option>-</option>
+            </select>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row" id="scheduleTable">
+
+        <div class="col-md-6 col-lg-4">
+            <h4>Понедельник <small class="text-muted" id="w1date">-</small></h4>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th class="w-1">8:30</th>
+                    <td id="w1n1">-</td>
+                </tr>
+                <tr>
+                    <th>10:10</th>
+                    <td id="w1n2">-</td>
+                </tr>
+                <tr>
+                    <th>12:00</th>
+                    <td id="w1n3">-</td>
+                </tr>
+                <tr>
+                    <th>14:30</th>
+                    <td id="w1n4">-</td>
+                </tr>
+                <tr>
+                    <th>16:10</th>
+                    <td id="w1n5">-</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <h4>Вторник <small class="text-muted" id="w2date">-</small></h4>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th class="w-1">8:30</th>
+                    <td id="w2n1">-</td>
+                </tr>
+                <tr>
+                    <th>10:10</th>
+                    <td id="w2n2">-</td>
+                </tr>
+                <tr>
+                    <th>12:00</th>
+                    <td id="w2n3">-</td>
+                </tr>
+                <tr>
+                    <th>14:30</th>
+                    <td id="w2n4">-</td>
+                </tr>
+                <tr>
+                    <th>16:10</th>
+                    <td id="w2n5">-</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <h4>Среда <small class="text-muted" id="w3date">-</small></h4>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th class="w-1">8:30</th>
+                    <td id="w3n1">-</td>
+                </tr>
+                <tr>
+                    <th>10:10</th>
+                    <td id="w3n2">-</td>
+                </tr>
+                <tr>
+                    <th>12:00</th>
+                    <td id="w3n3">-</td>
+                </tr>
+                <tr>
+                    <th>14:30</th>
+                    <td id="w3n4">-</td>
+                </tr>
+                <tr>
+                    <th>16:10</th>
+                    <td id="w3n5">-</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <h4>Четверг <small class="text-muted" id="w4date">-</small></h4>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th class="w-1">8:30</th>
+                    <td id="w4n1">-</td>
+                </tr>
+                <tr>
+                    <th>10:10</th>
+                    <td id="w4n2">-</td>
+                </tr>
+                <tr>
+                    <th>12:00</th>
+                    <td id="w4n3">-</td>
+                </tr>
+                <tr>
+                    <th>14:30</th>
+                    <td id="w4n4">-</td>
+                </tr>
+                <tr>
+                    <th>16:10</th>
+                    <td id="w4n5">-</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <h4>Пятница <small class="text-muted" id="w5date">-</small></h4>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th class="w-1">8:30</th>
+                    <td id="w5n1">-</td>
+                </tr>
+                <tr>
+                    <th>10:10</th>
+                    <td id="w5n2">-</td>
+                </tr>
+                <tr>
+                    <th>12:00</th>
+                    <td id="w5n3">-</td>
+                </tr>
+                <tr>
+                    <th>14:30</th>
+                    <td id="w5n4">-</td>
+                </tr>
+                <tr>
+                    <th>16:10</th>
+                    <td id="w5n5">-</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <h4>Суббота <small class="text-muted" id="w6date">-</small></h4>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th class="w-1">8:30</th>
+                    <td id="w6n1">-</td>
+                </tr>
+                <tr>
+                    <th>10:10</th>
+                    <td id="w6n2">-</td>
+                </tr>
+                <tr>
+                    <th>12:00</th>
+                    <td id="w6n3">-</td>
+                </tr>
+                <tr>
+                    <th>14:30</th>
+                    <td id="w6n4">-</td>
+                </tr>
+                <tr>
+                    <th>16:10</th>
+                    <td id="w6n5">-</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<script src="schedule.js"></script>
+
+<script src="https://momentjs.com/downloads/moment.js"></script>
+<script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+
+<script>
+    moment.locale('ru');
+
+    var scheduleNode = document.getElementById('scheduleTable');
+
+    var selectWeek = document.getElementById('selectWeek');
+    selectWeek.innerHTML = '';
+
+    var weekFrom = parseInt(moment(startDate).format('W'));
+    var weekTo = parseInt(moment(endDate).format('W'));
+    for (var i = weekFrom; i < weekTo; i++) {
+        var text = moment(i, 'W').startOf('week').format('D MMM') + ' - ' + moment(i, 'W').endOf('week').format('D MMM')
+        var optionNode = document.createElement('OPTION');
+        optionNode.setAttribute('value', i);
+        var textNode = document.createTextNode(text);
+        optionNode.appendChild(textNode);
+        selectWeek.appendChild(optionNode);
+    }
+
+    var getScheduleBasis = function (weekNumber) { return  weekNumber % 2 ? DENOMINATOR : NUMERATOR; };
+    var getScheduleBasisName = function (weekNumber) { return getScheduleBasis(weekNumber) ? 'знаменатель' : 'числитель'; };
+    var getPairNumberByMomentJSTime = function (time) {
+        var time = moment(time, 'HH:mm');
+        for (var pairNumber in PAIR_TIME) {
+            var from = moment(PAIR_TIME[pairNumber].from, 'HH:mm');
+            var to = moment(PAIR_TIME[pairNumber].to, 'HH:mm');
+            if (time.isSameOrAfter(from) && time.isSameOrBefore(to)
+            ) {
+                return pairNumber;
+            }
+        }
+        return 0;
+    };
+
+    selectWeek.addEventListener('change', function () {
+        var className = 'text-danger';
+        scheduleNode.style.visibility = 'hidden';
+        scheduleNode.style.opacity = 0;
+        var scheduledBasis = getScheduleBasis(this.value);
+        for (var i = 1; i <= 6; i++) {
+            var day = document.getElementById(`w${i}date`);
+            var isDayCurrent = false;
+            if (day) {
+                var dayDate = moment(this.value, 'W').startOf('week').add(i - 1, 'days');
+                day.innerHTML = dayDate.format('D MMM');
+
+                // подсвечиваем текущий день
+                var h = day.parentNode;
+                isDayCurrent = moment().format('Y-M-D') == dayDate.format('Y-M-D');
+                if (isDayCurrent) {
+                    h.classList.add(className);
+                    day.classList.add(className);
+                } else {
+                    h.classList.remove(className);
+                    day.classList.remove(className);
+                }
+            }
+            for (var j = 1; j <= 5; j++) {
+                var item = document.getElementById(`w${i}n${j}`);
+                if (item) {
+                    var text = '-';
+                    if (schedule[scheduledBasis] && schedule[scheduledBasis][i] && schedule[scheduledBasis][i][j]) {
+                        text = schedule[scheduledBasis][i][j];
+                    }
+                    item.innerHTML = text;
+
+                    // подсвечиваем текущую пару
+                    var itemParentNode = item.parentNode;
+                    if (isDayCurrent
+                        && moment().format('E') == i
+                        && getPairNumberByMomentJSTime(moment()) == j
+                    ) {
+                        itemParentNode.classList.add(className);
+                    } else {
+                        itemParentNode.classList.remove(className);
+                    }
+                }
+            }
+        }
+        setTimeout(function () {
+            scheduleNode.style.visibility = 'visible';
+            scheduleNode.style.opacity = 1;
+        }, 100);
+    });
+
+    // вывод текущей даты
+    document.getElementById('currentDate').innerHTML = moment().format('D MMM');
+    document.getElementById('currentBasis').innerHTML = '(' + getScheduleBasisName(moment().format('W')) + ')';
+    selectWeek.value = moment().format('W');
+    selectWeek.dispatchEvent(new Event('change'));
+</script>
+</body>
+</html>

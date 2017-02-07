@@ -202,6 +202,8 @@
     var selectWeek = document.getElementById('selectWeek');
     selectWeek.innerHTML = '';
 
+    var className = 'text-danger';
+
     var weekFrom = parseInt(moment(startDate).format('W'));
     var weekTo = parseInt(moment(endDate).format('W'));
     for (var i = weekFrom; i < weekTo; i++) {
@@ -210,6 +212,12 @@
         optionNode.setAttribute('value', i);
         var textNode = document.createTextNode(text);
         optionNode.appendChild(textNode);
+        // и подсвечиваем текущую неделю
+        if (moment(i, 'W').format('W') == moment().format('W')) {
+            optionNode.classList.add(className);
+        } else {
+            optionNode.classList.remove(className);
+        }
         selectWeek.appendChild(optionNode);
     }
 
@@ -229,7 +237,6 @@
     };
 
     selectWeek.addEventListener('change', function () {
-        var className = 'text-danger';
         scheduleNode.style.visibility = 'hidden';
         scheduleNode.style.opacity = 0;
         var scheduledBasis = getScheduleBasis(this.value);

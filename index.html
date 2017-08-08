@@ -237,14 +237,15 @@
     };
 
     selectWeek.addEventListener('change', function () {
+        var selectedWeek = this.value ? this.value : moment().format('W');
         scheduleNode.style.visibility = 'hidden';
         scheduleNode.style.opacity = 0;
-        var scheduledBasis = getScheduleBasis(this.value);
+        var scheduledBasis = getScheduleBasis(selectedWeek);
         for (var i = 1; i <= 6; i++) {
             var day = document.getElementById(`w${i}date`);
             var isDayCurrent = false;
             if (day) {
-                var dayDate = moment(this.value, 'W').startOf('week').add(i - 1, 'days');
+                var dayDate = moment(selectedWeek, 'W').startOf('week').add(i - 1, 'days');
                 day.innerHTML = dayDate.format('D MMM');
 
                 // подсвечиваем текущий день

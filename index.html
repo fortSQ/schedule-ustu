@@ -197,6 +197,26 @@
 <script>
     moment.locale('ru');
 
+    // сдвиг относительно документа
+    var getOffset = function (elem) {
+        var box = elem.getBoundingClientRect();
+
+        var body = document.body;
+        var docElem = document.documentElement;
+
+        var scrollTop = window.pageYOffset || docElem.scrollTop || body.scrollTop;
+        var scrollLeft = window.pageXOffset || docElem.scrollLeft || body.scrollLeft;
+
+        var clientTop = docElem.clientTop || body.clientTop || 0;
+        var clientLeft = docElem.clientLeft || body.clientLeft || 0;
+
+        var top  = box.top +  scrollTop - clientTop;
+        var left = box.left + scrollLeft - clientLeft;
+
+        return { top: Math.round(top), left: Math.round(left) };
+    };
+    var positionTop = 0;
+
     var scheduleNode = document.getElementById('scheduleTable');
 
     var selectWeek = document.getElementById('selectWeek');
@@ -253,6 +273,7 @@
                 isDayCurrent = moment().format('Y-M-D') == dayDate.format('Y-M-D');
                 if (isDayCurrent) {
                     h.classList.add(className);
+                    positionTop = getOffset(h).top;
                     day.classList.add(className);
                 } else {
                     h.classList.remove(className);
@@ -284,6 +305,7 @@
         setTimeout(function () {
             scheduleNode.style.visibility = 'visible';
             scheduleNode.style.opacity = 1;
+            window.scrollTo(0, positionTop);
         }, 100);
     });
 
